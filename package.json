@@ -42,5 +42,9 @@
   "bugs": {
     "url": "https://github.com/trainyard/choo-cli/issues"
   },
-  "homepage": "https://github.com/trainyard/choo-cli#readme"
+  "homepage": "https://github.com/trainyard/choo-cli#readme",
+  "devDependencies": {
+    "eslint": "^3.1.1",
+    "standard": "^7.1.2"
+  }
 }

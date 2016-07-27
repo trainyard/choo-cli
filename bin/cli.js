@@ -4,16 +4,14 @@
 process.env.PATH += ':./node_modules/.bin'
 process.env.CHOO_CLI = true
 /* Dependencies */
-const { resolve: resolvePath } = require('path')
 const { head, tail, either, not, compose } = require('ramda')
-const help = require('../lib/help')
-const Exec = require('../lib/exec')
+const help = require('./help')
+const exec = require('../lib/exec')
 const { isInitCommand, isAddCommand } = require('../lib/predicates')
 
 /* Execution */
 function run (args) {
   const command = head(args)
-  const exec = Exec(resolvePath(__dirname))
   const invalid = compose(not, either(isInitCommand, isAddCommand))
 
   if (invalid(command)) {
