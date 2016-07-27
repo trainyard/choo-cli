@@ -11,7 +11,7 @@ choo-cli is meant to be lightweight with as few abstractions as possible along, 
 The cli is used in conjunction with templates, where the templates themselves govern how the scaffolding works. This should allow high customizability along with a clear and concise pattern to follow without abstractions around manipulating the filesytem. It is desingned to use *node_modules* or a *direct path* to load your templates.
 
 ```
-choo init <my-app-name> --template <template-name>
+choo init --template <template-name>
 ```
 
 
