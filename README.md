@@ -29,6 +29,8 @@ Scaffold a new app in the current working directory.
   Currently one template is available and is WIP
 ```
 
+## Try it out
+
 ```
 npm install @choo/template-lite -g
 ```
