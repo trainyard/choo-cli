@@ -41,7 +41,7 @@ choo init --template <template-name>
 
 Currently one template is available and is WIP
 
-Once the template is installed, the custom `choo add <args>` sends the `argv` data directly to any node_module or js file of your choosing.
+Once the template is installed, the custom `choo add <args>` sends the `argv` data directly to it.  You can use any js file as a template providing it exports `init` and `generate`
 
 ## Try it out
 
