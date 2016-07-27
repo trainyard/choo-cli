@@ -14,11 +14,6 @@ The cli is used in conjunction with templates, where the templates themselves go
 choo init <my-app-name> --template <template-name>
 ```
 
-## How it works ##
-
-[ choo-cli ] ---> [choo-template] ---> [generated code]
-
-Once the template is installed, the custom choo add <args> sends the argv data to your template Directly so that you can control how the files are generated.
 
 ## Usage
 
@@ -32,7 +27,6 @@ Once the template is installed, the custom choo add <args> sends the argv data t
 ```
 ## Templates
 
-Scaffold a new app in the current working directory.
 
 ```
   Usage: choo-init [options]
@@ -42,8 +36,12 @@ Scaffold a new app in the current working directory.
     --template, -t  [path-or-npm-module]
                     You can also provide a path to a supported template library
 
-  Currently one template is available and is WIP
+  
 ```
+
+Currently one template is available and is WIP
+
+Once the template is installed, the custom `choo add <args>` sends the `argv` data directly to any node_module or js file of your choosing.
 
 ## Try it out
 
