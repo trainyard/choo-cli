@@ -145,13 +145,29 @@ exports.add = () => {
 ```
 
 ## A full sample template
-
+### require statments omitted for brevity
 ```javascript
-const fs = require('fs')
-const app = require('./app')
 
-exports.init = app.init
-exports.generate = app.generate
+/* app.js */
+// create initial scaffold
+//   from: $choo init --template @choo/template-lite
+exports.init = (argv) => {
+  return prompt([{
+    name: 'projectName',
+    message: 'What do you want to name your project?',
+    default: kebab(projectPath)
+  }, 
+}
+
+// called from the cli once the initial configuration has completed.
+exports.generate = (destinationPath, config) => {
+  const templatePath = path.join(__dirname, 'templates')
+  const mv = (a, b) => xfs.move(destinationPath(a), destinationPath(b))
+  xfs.copyTpl(`${templatePath}/**`, destinationPath(), config.get('meta'))
+  mv('gitignore', '.gitignore')
+  mv('_package.json', 'package.json')
+  xfs.commit(npmInstall)
+}
 
 // add functions, used only after init is true
 exports.add = () => {
