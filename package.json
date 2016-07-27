@@ -1,0 +1,46 @@
+{
+  "name": "@choo/choo-cli",
+  "version": "0.0.0",
+  "description": "out-of-the-box tooling and scaffolding for choo.js",
+  "bin": {
+    "choo": "bin/cli.js",
+    "choo-add": "bin/choo-add.js",
+    "choo-init": "bin/choo-init.js"
+  },
+  "dependencies": {
+    "escodegen": "^1.8.0",
+    "esprima": "^2.7.2",
+    "generator-choo": "https://github.com/trainyard/generator-choo",
+    "lodash.kebabcase": "^4.0.1",
+    "markdown-chalk": "^1.4.0",
+    "minimist": "^1.2.0",
+    "ramda": "^0.21.0",
+    "yeoman-generator": "^0.24.1",
+    "yo": "^1.8.4"
+  },
+  "scripts": {
+    "test": "NODE_ENV=test tape --require ./tests/**/*.js | tap-summary"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trainyard/choo-cli.git"
+  },
+  "keywords": [
+    "choo.js",
+    "generator",
+    "scaffold",
+    "plop",
+    "yeoman-generator",
+    "slush",
+    "cli",
+    "choo",
+    "boilerplate",
+    "template"
+  ],
+  "author": "Matt McFarland",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/trainyard/choo-cli/issues"
+  },
+  "homepage": "https://github.com/trainyard/choo-cli#readme"
+}
