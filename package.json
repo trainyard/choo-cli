@@ -1,5 +1,5 @@
 {
-  "name": "choo-cli",
+  "name": "@choo/cli",
   "version": "0.1.0",
   "description": "out-of-the-box tooling and scaffolding for choo.js",
   "bin": {
