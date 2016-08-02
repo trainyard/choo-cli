@@ -1,0 +1,172 @@
+html {
+  color: #393939;
+}
+
+a {
+  color: #b30816;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #8a3139;
+}
+
+code {
+  background: #eee;
+  color: #8a3139;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+body {
+  background: #eee;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0;
+  max-width: 960px;
+  width: 80%;
+}
+
+.card {
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+}
+
+.well {
+  padding: 0.5em;
+  border: thin solid #bbb;
+}
+.site-header {
+  clear: both;
+  display: block;
+  margin-bottom: 2em;
+  height: 50px;
+}
+.site-header nav {
+  float: right;
+}
+
+.site-header .container {
+  clear:both;
+  vertical-align: center;
+  overflow: hidden;
+  line-height: 50px;
+  max-height: 50px;
+  padding: 0;
+}
+
+.site-header nav a {
+  display: inline-block;
+  min-width: 50px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 50px;
+  margin-left: 1em;
+  text-transform: uppercase;
+}
+
+.site-header .brand {
+  display: inline-block;
+  color: #666;
+}
+
+.site-header .brand * {
+  line-height: 50px;
+  font-size: 22px;
+  float: left;
+  margin: 0 0.6em 0 0;
+  color: inherit;
+}
+
+.site-header .brand:after {
+  clear: both;
+}
+
+.color-white {
+  background:white;
+}
+
+.color-white.darken-1 {
+  background: #eee;
+}
+
+.color-white.darken-2 {
+  background: #ddd;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.row {
+  margin-right: -25px;
+  margin-left: -25px;
+  display: block;
+  overflow: hidden;
+}
+
+.col-half,
+.col-two-thirds,
+.col-one-third {
+  float: left;
+  position: relative;
+  min-height: 1px;
+  margin: 0;
+}
+
+.col-half {
+  width: 50%;
+}
+.col-one-third {
+  width: 33%;
+}
+.col-two-thirds {
+  width: 66%;
+}
+
+.panel {
+  margin: 1em;
+  padding: 1em;
+}
+
+.content {
+  margin-top: 1em;
+}
+
+p {
+  line-height: 1.2;
+}
+
+.footer-meta {
+  overflow: hidden;
+  height: 50px;
+  line-height: 50px;
+  color: rgba(255,255,255,0.8);
+  background-color: #222;
+}
+
+.site-footer {
+  margin-top: 20px;
+  padding: 10px 0 0 0;
+  background-color: #444;
+  color: #fff;
+}
+
+.site-footer h5 {
+  font-size: 18px;
+}
+
+.site-footer a {
+  color: #eee;
+}
+
+.pull-right {
+  float: right!important;
+}
+
+.pull-left {
+  float: left!important;
+}
