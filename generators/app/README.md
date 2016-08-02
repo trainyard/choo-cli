@@ -1,65 +1,6 @@
-# @choo/cli
+# <%= projectNAme %>
 
-This is a tool for generating [Choo](https://github.com/yoshuawuyts/choo) apps.
-
-To Install:
-
-```
-npm install @choo/cli -g
-```
-
-Using choo-cli will scaffold out a project and help generate additional files like models, pages, and elements.
-It also generates common scripts you can use to build/test/serve your choo app.
-
-```bash
-# generate a new project folder,
-# comes with package.json, readme, and recommended structure
-choo new my-new-project
-
-# generate a new page
-choo generate page my-new-page
-
-# generate a new model
-choo generate model my-new-model
-
-# generate a new element
-choo generate element my-new-element
-
-# run your app at localhost:8080
-npm start
-
-# build your app for production
-npm run build
-
-# test your app
-npm test
-
-```
-
-## Usage
-
-Choo-cli runs off of node and npm, you can install choo-cli globably with the
-following command:
-
-
-The basic signature of a choo-cli command look like this:
-```bash
-$ choo <command> <name> [options]
-```
-
-For example to create a new project skeleton we can run:
-
-```bash
-$ choo new my-project
-```
-
-You can now cd into my-project
-
-```bash
-$ cd my-project
-```
-
-Choo-cli will create a directory structure that [we've found to be optimal](https://github.com/yoshuawuyts/choo-handbook/blob/master/designing-for-reusability.md) for slim
+Choo-cli created a directory structure that [we've found to be optimal](https://github.com/yoshuawuyts/choo-handbook/blob/master/designing-for-reusability.md) for slim
 applications and reusability.
 
 ```txt
@@ -112,4 +53,3 @@ Here is complete list the the commands and their function
 
 So for example you can run `npm start` to start a dev server. You can now see your
 app running at [localhost:8080](https://localhost:8080)
-first time this will pull in your node deps and start a budo server
