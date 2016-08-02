@@ -3,33 +3,58 @@ const { name, version, description } = require('../package.json')
 exports.main = `
 ${name} ${version} - ${description}
 
-Usage: choo <command> [<args>]
+Usage: choo <command> [arguments]
 
 Available commands include:
 
-    init, t  Scaffold a new app in the current working directory.
-             Uses the demo template if no options are added.
+        new, n  Scaffold a new app in the current working directory.
+                Uses the demo template if no options are added.
 
-     add, a  Adds template dependent components, models, views, etc.
+  generate , g  Adds template dependent components, models, views, etc.
+
+Options:
+
+  --help, -h  SHows this.
 
 You can learn more about a specific command by running things like:
 
-  choo init --help
-  choo add  --help (depends on the template)
+  choo generate --help
+  choo new --help 
 
 `
 
-exports.init = `
-Scaffold a new app in the current working directory.
+exports.generate = `
+Generate a new file for your choo app.
 
-Usage: choo-init [options]
+Usage: choo generate <type> <name>
 
-Available options include:
+Argument Definitions:
 
-  --template, -t  [path-or-npm-module]
-                  You can also provide a path to a supported template library
+  type    valid types include page, model, or element.
+  name    name of the item.
+
+Examples:
+
+  choo generate model my-new-model
+  choo generate page my-new-page
+  choo generate element my-new-element
 
 Additional options:
+
+  --help, -h  Shows this.
+
+`
+
+exports.newApp = `
+Creates a new app directory and generates initial structure.
+
+Usage: choo new <project_name>
+
+Argument Definitions:
+
+  project_name    Name of the project
+
+Options:
 
   --help, -h  Shows this.
 

@@ -1,11 +1,11 @@
 {
-  "name": "@choo/cli",
-  "version": "0.0.0-unstable",
+  "name": "choo-cli",
+  "version": "0.1.0",
   "description": "out-of-the-box tooling and scaffolding for choo.js",
   "bin": {
     "choo": "bin/cli.js",
-    "choo-add": "bin/choo-add.js",
-    "choo-init": "bin/choo-init.js"
+    "choo-new": "bin/choo-new.js",
+    "choo-generate": "bin/choo-generate.js"
   },
   "dependencies": {
     "mem-fs": "^1.1.3",
