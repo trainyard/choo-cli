@@ -1,6 +1,6 @@
 {
   "name": "choo-cli",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "create choo apps from the command line",
   "bin": {
     "choo": "bin/cli.js",
@@ -48,5 +48,10 @@
   "homepage": "https://github.com/trainyard/choo-cli#readme",
   "devDependencies": {
     "standard": "^7.1.2"
+  },
+  "standard": {
+    "ignore": [
+      "template"
+    ]
   }
 }
