@@ -1,4 +1,5 @@
 module.exports = {
+  namespace: '<%= name %>',
   state: {
     /* initial values of state inside the model */
     // title: 'Set the title'
