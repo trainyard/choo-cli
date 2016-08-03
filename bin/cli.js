@@ -5,24 +5,24 @@ process.env.PATH += ':./node_modules/.bin'
 process.env.CHOO_CLI = true
 
 /* Dependencies */
-const { head, tail, either, not, compose } = require('ramda')
+const _ = require('ramda')
 const help = require('./help')
 const exec = require('../lib/exec')
-const { isGenerateCommand, isNewCommand } = require('../lib/predicates')
+const $ = require('../lib/predicates')
 
 /* Execution */
 function run (args) {
-  const command = head(args)
-  const invalid = compose(not, either(isGenerateCommand, isNewCommand))
+  const command = _.head(args)
+  const invalid = _.compose(_.not, _.either($.isGenerateCommand, $.isNewCommand))
 
   if (invalid(command)) {
     return console.log(help.main)
   }
-  if (isGenerateCommand(command)) {
-    return exec('choo-generate', tail(args))
+  if ($.isGenerateCommand(command)) {
+    return exec('choo-generate', _.tail(args))
   }
-  if (isNewCommand(command)) {
-    return exec('choo-new', tail(args))
+  if ($.isNewCommand(command)) {
+    return exec('choo-new', _.tail(args))
   }
 }
 

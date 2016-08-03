@@ -1,7 +1,7 @@
-const { name, version, description } = require('../package.json')
+const pkg = require('../package.json')
 
 exports.main = `
-${name} ${version} - ${description}
+${pkg.name} ${pkg.version} - ${pkg.description}
 
 Usage: choo <command> [arguments]
 

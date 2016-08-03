@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-const { resolve: resolvePath } = require('path')
-const { kebabCase } = require('lodash')
+const resolvePath = require('path').resolve
+const kebabCase = require('lodash').kebabCase
 const appGenerator = require('../generators/app')
 const args = process.argv.slice(2)
 const projectName = kebabCase(args[0])
