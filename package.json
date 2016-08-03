@@ -1,6 +1,6 @@
 {
   "name": "choo-cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "create choo apps from the command line",
   "bin": {
     "choo": "bin/cli.js",
@@ -17,10 +17,10 @@
     "walk-back": "^2.0.1",
     "yamljs": "^0.2.8"
   },
-  "engines" : { 
-    "node" : ">=4",
-    "npm": ">=3" 
-  }, 
+  "engines": {
+    "node": ">=4",
+    "npm": ">=3"
+  },
   "scripts": {
     "test": "NODE_ENV=test tape --require ./tests/**/*.js | tap-summary"
   },
