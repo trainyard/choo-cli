@@ -1,4 +1,4 @@
-# <%= projectNAme %>
+# <%= projectName %>
 
 Choo-cli created a directory structure that [we've found to be optimal](https://github.com/yoshuawuyts/choo-handbook/blob/master/designing-for-reusability.md) for slim
 applications and reusability.

@@ -19,7 +19,7 @@ Options:
 You can learn more about a specific command by running things like:
 
   choo generate --help
-  choo new --help 
+  choo new --help
 
 `
 

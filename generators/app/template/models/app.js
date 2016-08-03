@@ -1,13 +1,11 @@
 module.exports = {
   state: {
     /* initial values of state inside the model */
-    // counter: 1
+    title: 'Set the title'
   },
   reducers: {
     /* synchronous operations that modify state. Triggered by actions. Signature of (data, state). */
-    /*
-    add: (action, state) => ({ counter: state.counter + 1})
-    */
+    update: (action, state) => ({ title: action.value })
   },
   effects: {
     // asynchronous operations that don't modify state directly.
@@ -28,3 +26,4 @@ module.exports = {
     */
   ]
 }
+

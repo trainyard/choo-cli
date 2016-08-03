@@ -1,3 +1,5 @@
+# generated gitignore file
+
 # Logs
 logs
 *.log
@@ -149,6 +151,9 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
+
+# misc
+
 node_modules
 temp
 npm-debug.log

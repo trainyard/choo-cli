@@ -1,0 +1,26 @@
+{
+  "name": "<%= projectName %>",
+  "version": "0.0.0",
+  "description": "Created with choo-cli",
+  "license": "MIT",
+  "scripts": {
+    "start": "budo ./client.js --pushstate --open -- -g es2040",
+    "lint": "standard --verbose | snazzy",
+    "test": "npm run lint"
+  },
+  "dependencies": {
+    "choo": "^3.2.0"
+  },
+  "devDependencies": {
+    "browserify": "^13.0.1",
+    "budo": "8.3.0",
+    "es2040": "1.2.2",
+    "standard": "^7.1.2",
+    "snazzy": "^4.0.0"
+  },
+  "standard": {
+    "ignore": [
+      "scripts"
+    ]
+  }
+}

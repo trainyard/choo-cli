@@ -3,6 +3,7 @@
 /* Environment Variables */
 process.env.PATH += ':./node_modules/.bin'
 process.env.CHOO_CLI = true
+
 /* Dependencies */
 const { head, tail, either, not, compose } = require('ramda')
 const help = require('./help')
