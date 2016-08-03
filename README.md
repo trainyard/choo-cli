@@ -1,11 +1,11 @@
-# @choo/cli
+# choo-cli
 
 This is a tool for generating [Choo](https://github.com/yoshuawuyts/choo) apps.
 
 To Install:
 
 ```
-npm install @choo/cli -g
+npm install choo-cli -g
 ```
 
 Using choo-cli will scaffold out a project and help generate additional files like models, pages, and elements.
