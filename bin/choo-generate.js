@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const help = require('./help')
-const kebabCase = require('lodash').kebabCase
+const _ = require('lodash')
 const args = process.argv.slice(2)
 const generators = {
   page: require('../generators/page'),
@@ -22,10 +22,11 @@ if (!args[1]) {
 }
 
 const category = args[0]
-const name = kebabCase(args[1])
+const fileName = _.kebabCase(args[1])
+const name = _.camelCase(args[1])
 
 try {
-  generators[category]({name: name})
+  generators[category]({fileName: fileName, name: name})
 } catch (e) {
   console.log(help.generate)
   throw e
