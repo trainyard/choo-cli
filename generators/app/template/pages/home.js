@@ -8,6 +8,6 @@ module.exports = (state, prev, send) => html`
     <h3>${state.title}</h3>
     <input
       type="text"
-      oninput=${(e) => send('update', { value: e.target.value })}>
+      oninput=${(e) => send('update', { value: e.target.value })} />
   </main>
 `
