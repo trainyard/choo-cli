@@ -7,8 +7,7 @@ Usage: choo <command> [arguments]
 
 Available commands include:
 
-        new, n  Scaffold a new app in the current working directory.
-                Uses the demo template if no options are added.
+        new, n  Scaffold a new app relative to the current working directory                
 
   generate , g  Adds template dependent components, models, views, etc.
 
