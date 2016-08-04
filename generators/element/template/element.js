@@ -2,6 +2,6 @@
 
 const html = require('choo/html')
 
-module.exports = (state, prev, send) => html`
+module.exports = () => html`
   <div> <%= name %> </div>
 `
