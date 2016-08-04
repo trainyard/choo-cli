@@ -2,6 +2,8 @@
 
 This is a tool for generating [Choo](https://github.com/yoshuawuyts/choo) apps.
 
+![demo](./choo-cli-demo.gif)
+
 To Install:
 
 ```
