@@ -115,3 +115,6 @@ Here is complete list the the commands and their function
 So for example you can run `npm start` to start a dev server. You can now see your
 app running at [localhost:8080](https://localhost:8080)
 first time this will pull in your node deps and start a budo server
+
+## License
+MIT &copy;
