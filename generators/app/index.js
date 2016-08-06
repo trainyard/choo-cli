@@ -3,7 +3,6 @@
 const utils = require('../../lib/utils')
 const path = require('path')
 
-
 module.exports = (props) => {
   const destinationPath = utils.newProjectPath(props.projectName)
   const templatePath = path.join(__dirname, 'template')
