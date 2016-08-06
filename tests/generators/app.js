@@ -38,6 +38,7 @@ test('App Generator', t => {
           (check.ruleId !== 'ava' &&
             check.ruleId !== 'xo' &&
             check.ruleId !== 'pkg-files' &&
+            check.ruleId !== 'filename-case' &&
             check.ruleId !== 'license')) {
           t.notOk(check, check.message)
         }
