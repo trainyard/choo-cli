@@ -1,1 +1,1 @@
-![excellent]('./bat.jpg')
+![excellent](./bat.jpg)
