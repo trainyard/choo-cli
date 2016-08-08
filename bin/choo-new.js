@@ -21,7 +21,7 @@ if (!args[0]) {
     process.env.PROJECT_PATH = resolvePath(process.cwd(), projectName)
     appGenerator({projectName})
   } else if (args[1] === 'from' && args[2]) {
-    var projectName = kebabCase(args[0])
+    projectName = kebabCase(args[0])
     const templateRepo = args[2]
     process.env.PROJECT_PATH = resolvePath(process.cwd(), projectName)
     appGenerator({projectName, templateRepo})

@@ -75,6 +75,18 @@ client.js      main application entry; programmatic manifest file
 package.json   manifest file
 ```
 
+## Custom templates
+
+You can also install custom templates from Github, like this
+
+```bash
+$ choo new <project> from <github-user>/<github-repo>
+```
+
+Custom templates must have `ejs` templating syntax.
+
+## Generators
+
 You can use choo-cli to generate pieces of your project as you are developing.
 For example you can generate
 
