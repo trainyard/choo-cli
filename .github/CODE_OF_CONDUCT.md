@@ -1,1 +1,0 @@
-![excellent](./bat.jpg)
