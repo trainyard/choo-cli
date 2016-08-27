@@ -21,7 +21,7 @@ $ choo generate model my-model
   reducers: {
     /* synchronous operations that modify state. Triggered by actions. Signature of (data, state). */
     /*
-    add: (action, state) => ({ counter: state.counter + 1})
+    add: (data, state) => ({ counter: state.counter + 1})
     */
   },
   effects: {
