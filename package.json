@@ -28,7 +28,7 @@
     "npm": ">=3"
   },
   "scripts": {
-    "clean": "rimraf temp",
+    "clean": "rimraf temp && rimraf starter",
     "deps": "dependency-check . && dependency-check . --extra --no-dev",
     "pretest": "npm run clean",
     "posttest": "npm run clean",
@@ -64,7 +64,8 @@
     "snazzy": "^4.0.0",
     "standard": "^8.0.0",
     "tap-summary": "^3.0.1",
-    "tape": "^4.6.0"
+    "tape": "^4.6.0",
+    "tape-catch": "^1.0.6"
   },
   "standard": {
     "ignore": [

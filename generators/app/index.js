@@ -6,6 +6,7 @@ const chalk = require('chalk')
 const exec = require('../../lib/exec')
 const pad = require('left-pad')
 const fs = require('fs')
+const yaml = require('yamljs')
 
 const choochoo = fs.readFileSync(path.resolve(__dirname, '../../choo!')).toString()
 function formatState (state) {
@@ -34,24 +35,50 @@ module.exports = (props) => {
     exec('git', ['clone', repo], {}, function () {
       // compile template
       const projectPath = path.join(process.cwd(), props.templateRepo.split('/').pop())
-      generateApp(projectPath, destinationPath, props)
-      exec('rm', ['-rf', projectPath])
+      // check if choo.yaml exist
+      fs.stat(path.join(projectPath, '_choo.yaml'), (err, stats) => {
+        if (err || !stats.isFile()) {
+          exec('rm', ['-rf', projectPath])
+          console.log(chalk.red.bold('_choo.yaml') + chalk.gray(' file missing in custom template.'))
+          process.exit(1)
+        }
+        const defaults = {
+          required: ['_choo.yaml']
+        }
+        const config = Object.assign(defaults, yaml.parse(fs.readFileSync(path.join(projectPath, '_choo.yaml'), 'utf8')))
+        // now that choo.yml file is present, check which files are required
+        if (config.required && config.required.length > 0) {
+          config.required.forEach((req, index) => {
+            fs.stat(projectPath + '/' + req, (err, stats) => {
+              if (err || !stats.isFile()) {
+                exec('rm', ['-rf', projectPath])
+                console.log(chalk.red.bold(req) + chalk.gray(' file missing in custom template.'))
+                process.exit(1)
+              } else if (index === config.required.length - 1) {
+                generateApp(projectPath, destinationPath, props, config.required)
+                exec('rm', ['-rf', projectPath])
+              }
+            })
+          })
+        }
+      })
     })
   }
 }
 
-function generateApp (source, destinationPath, props) {
+function generateApp (source, destinationPath, props, required) {
+  console.log(required)
   const mv = (a, b) => utils.xfs.move(destinationPath(a), destinationPath(b))
   const targetDirName = destinationPath().split('/').pop()
   utils.xfs.copyTpl(`${source}/**`, destinationPath(), props)
-  mv('_choo.yaml', 'choo.yaml')
-  mv('_editorconfig', '.editorconfig')
-  mv('_gitignore', '.gitignore')
-  mv('_package.json', 'package.json')
+  if (!props.templateRepo || required.indexOf('_choo.yaml') > -1) mv('_choo.yaml', 'choo.yaml')
+  if (!props.templateRepo || required.indexOf('_editorconfig') > -1) mv('_editorconfig', '.editorconfig')
+  if (!props.templateRepo || required.indexOf('_gitignore') > -1) mv('_gitignore', '.gitignore')
+  if (!props.templateRepo || required.indexOf('_package.json') > -1) mv('_package.json', 'package.json')
 
   utils.xfs.store.each((record, i) => {
     const file = record.history[record.history.length - 1]
-    if (file.indexOf('template') > -1) {
+    if (file.indexOf('template') > -1 || file.indexOf(props.templateRepo) > -1) {
       const state = formatState('read')
       const filePath = chalk.grey.bold('[$' + file.substring(file.indexOf('template'), file.length) + ']')
       console.log(`${state}  ${filePath}`)

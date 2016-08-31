@@ -54,7 +54,7 @@ test('App Generator', t => {
 test('Custom generator', t => {
   t.test('Github generator', t => {
     t.plan(8)
-    exec('choo-new.js', ['temp', 'from', 'YerkoPalma/choo-starter'], {
+    exec('choo-new.js', ['starter', 'from', 'YerkoPalma/choo-starter'], {
       cwd: testUtils.cwd
     }, () => {
       testUtils.filesExist([
@@ -66,7 +66,7 @@ test('Custom generator', t => {
         'app.js',
         'package.json',
         'README.md'
-      ]).forEach(file => {
+      ], 'starter').forEach(file => {
         t.assert(file.exists, `${file.name} must be generated.`)
       })
       clinton.lint(testUtils.tempDir, {
