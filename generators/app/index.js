@@ -32,7 +32,7 @@ module.exports = (props) => {
   } else {
     const repo = `https://github.com/${props.templateRepo}.git`
     // clone the template repo in the current directory
-    exec('git', ['clone', repo], {}, function () {
+    exec('git', ['clone', '-q', repo], {}, function () {
       // compile template
       const projectPath = path.join(process.cwd(), props.templateRepo.split('/').pop())
       // check if choo.yaml exist
@@ -40,6 +40,13 @@ module.exports = (props) => {
         if (err || !stats.isFile()) {
           exec('rm', ['-rf', projectPath])
           console.log(chalk.red.bold('_choo.yaml') + chalk.gray(' file missing in custom template.'))
+          process.exit(1)
+        }
+        // check that the cloned repo has choo as a dependency
+        const pkg = JSON.parse(fs.readFileSync(path.join(projectPath, '_package.json')))
+        if (!pkg.dependencies || !pkg.dependencies.choo) {
+          exec('rm', ['-rf', projectPath])
+          console.log(chalk.red.bold('choo') + chalk.gray(' was not found as a dependency of the custom template'))
           process.exit(1)
         }
         const defaults = {
@@ -67,7 +74,6 @@ module.exports = (props) => {
 }
 
 function generateApp (source, destinationPath, props, required) {
-  console.log(required)
   const mv = (a, b) => utils.xfs.move(destinationPath(a), destinationPath(b))
   const targetDirName = destinationPath().split('/').pop()
   utils.xfs.copyTpl(`${source}/**`, destinationPath(), props)
