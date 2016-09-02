@@ -1,29 +1,71 @@
 #!/usr/bin/env node
 
+const chalk = require('chalk')
+const helpFile = require('./help')
 const resolvePath = require('path').resolve
 const kebabCase = require('lodash').kebabCase
+const R = require('ramda')
 const inquirer = require('inquirer')
 const appGenerator = require('../generators/app')
-const args = process.argv.slice(2)
+const minimist = require('minimist')
+const argv = minimist(process.argv.slice(2))
+const args = argv._
+const hasHelpOption = argv.help || argv.h || false
+const validOptions = ['_', 'help', 'h', 'from', 'f']
+const invalidOptions = R.difference(R.keys(argv), validOptions)
 
-if (!args[0]) {
+// choo new --help
+if (hasHelpOption) {
+  console.log(helpFile.newApp)
+  process.exit(0)
+}
+
+// choo new --stuff
+if (invalidOptions && invalidOptions.length) {
+  showWarning(`Invalid Option: ${invalidOptions}`)
+  process.exit(0)
+}
+
+// choo new <enter> - prompted for an app name
+if (hasNoArgs(args)) {
   inquirer.prompt({
     type: 'input',
     name: 'projectName',
     message: 'What is your project name?'
   }).then(props => {
-    process.env.PROJECT_PATH = resolvePath(process.cwd(), props.projectName)
+    setEnvironment(props.projectName)
     appGenerator({projectName: props.projectName})
   })
-} else {
-  if (args.length === 1) {
-    var projectName = kebabCase(args[0])
-    process.env.PROJECT_PATH = resolvePath(process.cwd(), projectName)
-    appGenerator({projectName})
-  } else if (args[1] === 'from' && args[2]) {
-    projectName = kebabCase(args[0])
-    const templateRepo = args[2]
-    process.env.PROJECT_PATH = resolvePath(process.cwd(), projectName)
-    appGenerator({projectName, templateRepo})
-  }
+}
+
+// choo new --from [github] [appName]
+if (hasValidFromOption(argv)) {
+  const projectName = kebabCase(args[0])
+  const templateRepo = argv.from
+  setEnvironment(projectName)
+  appGenerator({projectName, templateRepo})
+}
+
+// choo new [appName]
+if (args.length === 1) {
+  const projectName = kebabCase(args[1])
+  setEnvironment(projectName)
+  appGenerator({projectName})
+}
+
+function hasNoArgs (argList) {
+  return argList.length === 0
+}
+
+function hasValidFromOption (argObj) {
+  const hasFrom = argObj.from
+  return typeof hasFrom === 'string'
+}
+
+function setEnvironment (projectName) {
+  process.env.PROJECT_PATH = resolvePath(process.cwd(), projectName)
+}
+
+function showWarning (warning) {
+  console.log(chalk.yellow.bold(warning))
 }
