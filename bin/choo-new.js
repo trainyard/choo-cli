@@ -2,9 +2,23 @@
 
 const resolvePath = require('path').resolve
 const kebabCase = require('lodash').kebabCase
+const help = require('./help.js')
+const R = require('ramda')
 const inquirer = require('inquirer')
 const appGenerator = require('../generators/app')
 const args = process.argv.slice(2)
+
+const helpOptions = R.intersection(['--help', '-h'])
+const notEmpty = R.complement(R.isEmpty)
+const hasHelp = R.pipe(
+  helpOptions,
+  notEmpty
+)
+
+if (hasHelp(args)) {
+  console.log(help.newApp)
+  process.exit(0)
+}
 
 if (!args[0]) {
   inquirer.prompt({
