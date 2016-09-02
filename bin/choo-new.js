@@ -46,7 +46,7 @@ if (hasValidFromOption(argv)) {
 }
 
 // choo new [appName]
-if (args.length === 1) {  
+if (args.length === 1) {
   setEnvironment(kebabCase(args[0]))
   appGenerator({projectName: kebabCase(args[0])})
 }
