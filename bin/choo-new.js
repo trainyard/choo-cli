@@ -40,17 +40,15 @@ if (hasNoArgs(args)) {
 
 // choo new --from [github] [appName]
 if (hasValidFromOption(argv)) {
-  const projectName = kebabCase(args[0])
   const templateRepo = argv.from
-  setEnvironment(projectName)
-  appGenerator({projectName, templateRepo})
+  setEnvironment(kebabCase(args[0]))
+  appGenerator({projectName: kebabCase(args[0]), templateRepo})
 }
 
 // choo new [appName]
-if (args.length === 1) {
-  const projectName = kebabCase(args[1])
-  setEnvironment(projectName)
-  appGenerator({projectName})
+if (args.length === 1) {  
+  setEnvironment(kebabCase(args[0]))
+  appGenerator({projectName: kebabCase(args[0])})
 }
 
 function hasNoArgs (argList) {
