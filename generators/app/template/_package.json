@@ -4,7 +4,7 @@
   "description": "Created with choo-cli",
   "license": "MIT",
   "scripts": {
-    "start": "budo ./client.js --pushstate --open -- -g es2040",
+    "start": "budo ./client.js --live --pushstate --open -- -g es2040",
     "lint": "standard --verbose | snazzy",
     "test": "npm run lint"
   },
