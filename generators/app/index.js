@@ -24,7 +24,7 @@ function formatState (state) {
   }
 }
 
-function getTemplatePath(useSheetify) {
+function getTemplatePath (useSheetify) {
   if (useSheetify) {
     return 'template_sheetify'
   }
