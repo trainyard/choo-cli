@@ -23,11 +23,20 @@ function formatState (state) {
       return chalk.magenta.bold(pad(state, 7))
   }
 }
+
+function getTemplatePath (useSheetify) {
+  if (useSheetify) {
+    return 'template_sheetify'
+  }
+
+  return 'template'
+}
+
 module.exports = (props) => {
   const destinationPath = utils.newProjectPath(props.projectName)
 
   if (!props.templateRepo) {
-    const templatePath = path.join(__dirname, 'template')
+    const templatePath = path.join(__dirname, getTemplatePath(props.sheetify))
     generateApp(templatePath, destinationPath, props)
   } else {
     const repo = `https://github.com/${props.templateRepo}.git`

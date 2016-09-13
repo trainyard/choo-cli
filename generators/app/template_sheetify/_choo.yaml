@@ -1,0 +1,4 @@
+projectName: <%= projectName %>
+template:
+  name: choo-cli
+  source: choo-cli

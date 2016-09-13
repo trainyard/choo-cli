@@ -15,29 +15,43 @@ const hasHelp = R.pipe(
   notEmpty
 )
 
+const askForSheetify = {
+  type: 'confirm',
+  name: 'useSheetify',
+  message: 'Use sheetify for styles?'
+}
+
+const askForProjectName = {
+  type: 'input',
+  name: 'projectName',
+  message: 'What is your project name?'
+}
+
 if (hasHelp(args)) {
   console.log(help.newApp)
   process.exit(0)
 }
 
 if (!args[0]) {
-  inquirer.prompt({
-    type: 'input',
-    name: 'projectName',
-    message: 'What is your project name?'
-  }).then(props => {
+  inquirer.prompt([
+    askForProjectName,
+    askForSheetify
+  ]).then(props => {
     process.env.PROJECT_PATH = resolvePath(process.cwd(), props.projectName)
-    appGenerator({projectName: props.projectName})
+    appGenerator({projectName: props.projectName, sheetify: props.useSheetify})
   })
 } else {
   if (args.length === 1) {
-    var projectName = kebabCase(args[0])
-    process.env.PROJECT_PATH = resolvePath(process.cwd(), projectName)
-    appGenerator({projectName})
+    inquirer.prompt(askForSheetify)
+      .then(props => {
+        var projectName = kebabCase(args[0])
+        process.env.PROJECT_PATH = resolvePath(process.cwd(), projectName)
+        appGenerator({ projectName, sheetify: props.useSheetify })
+      })
   } else if (args[1] === 'from' && args[2]) {
-    projectName = kebabCase(args[0])
+    var projectName = kebabCase(args[0])
     const templateRepo = args[2]
     process.env.PROJECT_PATH = resolvePath(process.cwd(), projectName)
-    appGenerator({projectName, templateRepo})
+    appGenerator({ projectName, templateRepo, sheetify: false })
   }
 }
