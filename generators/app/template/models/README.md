@@ -2,7 +2,7 @@
 
 Choo Models go here.
 
-More information:  https://github.com/yoshuawuyts/choo-handbook/blob/master/designing-for-reusability.md
+More information:  https://github.com/yoshuawuyts/choo-handbook/blob/master/guides/designing-for-reusability.md
 
 ### Generate
 

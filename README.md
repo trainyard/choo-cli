@@ -61,7 +61,7 @@ You can now cd into my-project
 $ cd my-project
 ```
 
-Choo-cli will create a directory structure that [we've found to be optimal](https://github.com/yoshuawuyts/choo-handbook/blob/master/designing-for-reusability.md) for slim
+Choo-cli will create a directory structure that [we've found to be optimal](https://github.com/yoshuawuyts/choo-handbook/blob/master/guides/designing-for-reusability.md) for slim
 applications and reusability.
 
 ```txt
