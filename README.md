@@ -31,7 +31,7 @@ choo generate element my-new-element
 npm start
 
 # build your app for production
-npm run build
+npm run build:prod
 
 # test your app
 npm test
