@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build:prod": "scripts/build-prod.sh",
-    "start": "budo ./client.js --live --pushstate --open -- -g es2040",
+    "start": "budo ./client.js -p 8080 --live --pushstate --open -- -g es2040",
     "lint": "standard --verbose | snazzy",
     "test": "npm run lint"
   },
