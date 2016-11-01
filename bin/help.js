@@ -7,7 +7,7 @@ Usage: choo <command> [arguments]
 
 Available commands include:
 
-        new, n  Scaffold a new app relative to the current working directory                
+        new, n  Scaffold a new app relative to the current working directory
 
   generate , g  Adds template dependent components, models, views, etc.
 
@@ -25,23 +25,12 @@ You can learn more about a specific command by running things like:
 exports.generate = `
 Generate a new file for your choo app.
 
-Usage: choo generate <type> <name>
+Usage: choo generate <generator> <name>
 
 Argument Definitions:
 
-  type    valid types include page, model, or element.
-  name    name of the item.
-
-Examples:
-
-  choo generate model my-new-model
-  choo generate page my-new-page
-  choo generate element my-new-element
-
-Additional options:
-
-  --help, -h  Shows this.
-
+  generator    valid types include page, model, or element.
+  name         name of the item.
 `
 
 exports.newApp = `

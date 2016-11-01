@@ -6,32 +6,61 @@ const findConfig = require('../lib/utils').findConfig
 const help = require('./help')
 const _ = require('lodash')
 const args = process.argv.slice(2)
-const generators = {
-  page: require('../generators/page'),
-  model: require('../generators/model'),
-  element: require('../generators/element')
+const generate = require('../lib/utils').generate
+const resolvePath = require('path').resolve
+const requestedGeneratorName = args[0]
+const fileName = _.kebabCase(args[1])
+const name = _.camelCase(args[1])
+const config = yaml.parse(fs.readFileSync(findConfig(), 'utf8'))
+const chalk = require('chalk');
+const findRootPath = require('../lib/utils').findRootPath
+
+// console.log(config);
+const availableGenerators = Object.keys(config.generators);
+
+function createFromTemplate (options) {
+  generate(options.templatePath, options.target, {
+    name: options.name,
+    fileName: options.fileName
+  })
+}
+
+function showHelp () {
+  console.log(help.generate);
+  console.log('Available generators:\n');
+  availableGenerators.forEach(generatorName => {
+    console.log(chalk.green(' ', generatorName), '-', config.generators[generatorName].description || 'create a new', generatorName)
+  })
 }
 
 if (!args[0]) {
-  console.log(help.generate)
-  console.log('Please use a valid category')
+  showHelp()
+  console.log(chalk.yellow('Please use a valid generator'))
   process.exit()
 }
 
 if (!args[1]) {
-  console.log(help.generate)
-  console.log('Please add a name')
+  showHelp()
+  console.log(chalk.yellow('Please add a name'))
   process.exit()
 }
 
-const category = args[0]
-const fileName = _.kebabCase(args[1])
-const name = _.camelCase(args[1])
-const config = yaml.parse(fs.readFileSync(findConfig(), 'utf8'))[category] || {}
 
-try {
-  generators[category]({fileName: fileName, name: name, path: config.path})
-} catch (e) {
-  console.log(help.generate)
-  throw e
+if (availableGenerators.indexOf(requestedGeneratorName) >= 0) {
+  try {
+    const template = config.generators[requestedGeneratorName];
+    createFromTemplate({
+      fileName: fileName,
+      name: name,
+      templatePath: resolvePath(findRootPath(), template.src),
+      target: resolvePath(findRootPath(), template.target)
+    })
+  } catch (e) {
+    throw e
+  }
+} else {
+  showHelp()
+  console.log(chalk.yellow('Generator not available'))
+  process.exit()
 }
+
