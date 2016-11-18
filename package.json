@@ -1,6 +1,6 @@
 {
   "name": "choo-cli",
-  "version": "0.9.0",
+  "version": "1.0.0-rc1",
   "description": "create choo apps from the command line",
   "bin": {
     "choo": "bin/cli.js",
@@ -31,7 +31,6 @@
     "npm": ">=3"
   },
   "scripts": {
-    "preinstall": "BUILD_ONLY=true npm install nodegit",
     "clean": "rimraf temp",
     "deps": "dependency-check . && dependency-check . --extra --no-dev",
     "pretest": "npm run clean",
