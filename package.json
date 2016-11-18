@@ -18,9 +18,11 @@
     "mem-fs": "^1.1.3",
     "mem-fs-editor": "^2.3.0",
     "minimist": "^1.2.0",
+    "mkdirp": "^0.5.1",
+    "nodegit": "^0.16.0",
     "ramda": "^0.22.1",
     "resolve": "^1.1.7",
-    "rimraf": "^2.5.4",    
+    "rimraf": "^2.5.4",
     "walk-back": "^2.0.1",
     "yamljs": "^0.2.8"
   },
@@ -29,7 +31,7 @@
     "npm": ">=3"
   },
   "scripts": {
-    "clean": "rimraf temp && rimraf starter",
+    "clean": "rimraf temp",
     "deps": "dependency-check . && dependency-check . --extra --no-dev",
     "pretest": "npm run clean",
     "posttest": "npm run clean",
