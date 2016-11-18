@@ -9,6 +9,7 @@ const _ = require('ramda')
 const help = require('./help')
 const exec = require('../lib/exec')
 const $ = require('../lib/predicates')
+const { message } = require('../lib/utils')
 
 /* Execution */
 function run (args) {
@@ -16,7 +17,7 @@ function run (args) {
   const invalid = _.compose(_.not, _.either($.isGenerateCommand, $.isNewCommand))
 
   if (invalid(command)) {
-    return console.log(help.main)
+    return message(help.main)
   }
   if ($.isGenerateCommand(command)) {
     return exec('choo-generate', _.tail(args))
