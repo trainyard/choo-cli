@@ -6,6 +6,7 @@ const help = require('./help.js')
 const R = require('ramda')
 const inquirer = require('inquirer')
 const appGenerator = require('../generators/app')
+const { message } = require('../lib/utils')
 const args = process.argv.slice(2)
 
 const helpOptions = R.intersection(['--help', '-h'])
@@ -16,7 +17,7 @@ const hasHelp = R.pipe(
 )
 
 if (hasHelp(args)) {
-  console.log(help.newApp)
+  message(help.newApp)
   process.exit(0)
 }
 
