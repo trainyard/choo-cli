@@ -31,6 +31,7 @@
     "npm": ">=3"
   },
   "scripts": {
+    "preinstall": "BUILD_ONLY=true npm install nodegit",
     "clean": "rimraf temp",
     "deps": "dependency-check . && dependency-check . --extra --no-dev",
     "pretest": "npm run clean",
