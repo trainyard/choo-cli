@@ -49,7 +49,9 @@ test('App Generator', t => {
         env: process.env,
         stdio: 'inherit'
       })
-
+      execShouldFail.on('error', (code) => {
+        console.log(code)
+      })
       execShouldFail.on('exit', (code) => {
         t.assert(code === 1, 'choo-new should fail when given invalid syntax')
       })
