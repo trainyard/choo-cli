@@ -4,19 +4,31 @@ const yaml = require('yamljs')
 const fs = require('fs')
 const help = require('./help')
 const _ = require('lodash')
+const { parse } = require('espree')
+const chalk = require('chalk')
 const args = process.argv.slice(2)
 const resolvePath = require('path').resolve
 const requestedGeneratorName = args[0]
 const fileName = _.kebabCase(args[1])
 const name = _.camelCase(args[1])
 const { findConfig, findRootPath, generate, message } = require('../lib/utils')
-const config = yaml.parse(fs.readFileSync(findConfig(), 'utf8'))
-const chalk = require('chalk')
+let config
 
-// message(config);
+try {
+  config = yaml.parse(fs.readFileSync(findConfig(), 'utf8'))
+} catch (e) {
+  message(chalk.red(' choo.yaml not found'))
+  process.exit(1)
+}
 const availableGenerators = Object.keys(config.generators)
 
 function createFromTemplate (options) {
+  try {
+    parse(`function ${options.name} () {}`)
+  } catch (e) {
+    message(chalk.red(options.name, 'is an invalid name'))
+    process.exit(1)
+  }
   generate(options.templatePath, options.target, {
     name: options.name,
     fileName: options.fileName
