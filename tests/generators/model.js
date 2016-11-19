@@ -20,7 +20,11 @@ test('Model Generator', t => {
     stdio: 'inherit'
   })
   execShouldFail.on('error', (code) => {
-    console.log(code)
+    console.log('execShouldFail triggered error')
+  })
+
+  execShouldFail.on('stderr', (code) => {
+    console.log('execShouldFail triggered stderr')
   })
 
   execShouldFail.on('exit', (code) => {
