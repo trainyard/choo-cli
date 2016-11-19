@@ -1,9 +1,6 @@
 language: node_js
 node_js:
   - '6'
-  - '7'
-env:
-  - CXX=g++-4.8
 notifications:
   email: false
 addons:
@@ -11,5 +8,4 @@ addons:
     sources:
       - ubuntu-toolchain-r-test
     packages:
-      - g++-4.8
       - libstdc++-4.9-dev
