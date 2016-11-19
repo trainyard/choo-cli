@@ -3,10 +3,9 @@ const test = require('tape')
 const testUtils = require('../../lib/test-utils')
 const clinton = require('clinton')
 const exec = require('../../lib/exec')
-const spawn = require('cross-spawn')
 
 test('App Generator', t => {
-  t.plan(15)
+  t.plan(14)
   exec('choo-new.js', ['temp'], {
     cwd: testUtils.cwd
   }, () => {
@@ -44,20 +43,6 @@ test('App Generator', t => {
             check.ruleId !== 'license')) {
           t.notOk(check, check.message)
         }
-      })
-      const execShouldFail = spawn('choo-new', [500], {
-        env: process.env,
-        stdio: 'inherit'
-      })
-      execShouldFail.on('error', (code) => {
-        console.log('execShouldFail triggered error')
-      })
-
-      execShouldFail.on('stderr', (code) => {
-        console.log('execShouldFail triggered stderr')
-      })
-      execShouldFail.on('exit', (code) => {
-        t.assert(code === 1, 'choo-new should fail when given invalid syntax')
       })
     }).catch(errors => {
       t.notOk(errors)
