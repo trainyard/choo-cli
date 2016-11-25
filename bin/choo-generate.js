@@ -32,7 +32,7 @@ function createFromTemplate ({name, templatePath, target, fileName}) {
   } else {
     message(chalk.red('invalid name:', name))
     process.exit(1)
-  }  
+  }
 }
 
 function showHelp () {

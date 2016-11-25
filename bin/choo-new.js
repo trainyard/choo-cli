@@ -16,7 +16,6 @@ const hasHelp = R.pipe(
   notEmpty
 )
 
-
 if (hasHelp(args)) {
   message(help.newApp)
   process.exit(0)

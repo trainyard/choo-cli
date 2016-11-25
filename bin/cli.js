@@ -9,7 +9,7 @@ const help = require('./help')
 const exec = require('../lib/exec')
 const { head, tail } = require('ramda')
 const { isGenerateCommand, isNewCommand, isVersionCommand } = require('../lib/predicates')
-const { name, version, description }  = require('../package.json')
+const { name, version, description } = require('../package.json')
 const { message } = require('../lib/utils')
 
 /* Execution */
