@@ -13,7 +13,7 @@ Available commands include:
 
 Options:
 
-  --help, -h  SHows this.
+  --help, -h  Shows this.
 
 You can learn more about a specific command by running things like:
 

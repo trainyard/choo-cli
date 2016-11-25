@@ -4,35 +4,35 @@ const yaml = require('yamljs')
 const fs = require('fs')
 const help = require('./help')
 const _ = require('lodash')
-const { parse } = require('espree')
+
 const chalk = require('chalk')
 const args = process.argv.slice(2)
 const resolvePath = require('path').resolve
 const requestedGeneratorName = args[0]
 const fileName = _.kebabCase(args[1])
 const name = _.camelCase(args[1])
-const { findConfig, findRootPath, generate, message } = require('../lib/utils')
+const { findConfig, findRootPath, generate, message, isFuncNameValid } = require('../lib/utils')
 let config
 
 try {
   config = yaml.parse(fs.readFileSync(findConfig(), 'utf8'))
 } catch (e) {
-  message(chalk.red(' choo.yaml not found'))
+  message(chalk.red('choo.yaml not found'))
   process.exit(1)
 }
 const availableGenerators = Object.keys(config.generators)
 
-function createFromTemplate (options) {
-  try {
-    parse(`function ${options.name} () {}`)
-  } catch (e) {
-    message(chalk.red(options.name, 'is an invalid name'))
+function createFromTemplate ({name, templatePath, target, fileName}) {
+  if (isFuncNameValid(name)) {
+    message(chalk.grey(`Generating ${name}`))
+    generate(templatePath, target, {
+      name,
+      fileName
+    })
+  } else {
+    message(chalk.red('invalid name:', name))
     process.exit(1)
-  }
-  generate(options.templatePath, options.target, {
-    name: options.name,
-    fileName: options.fileName
-  })
+  }  
 }
 
 function showHelp () {
