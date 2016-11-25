@@ -1,6 +1,6 @@
 {
   "name": "choo-cli",
-  "version": "1.0.0-rc5",
+  "version": "1.0.0",
   "description": "create choo apps from the command line",
   "bin": {
     "choo": "bin/cli.js",
