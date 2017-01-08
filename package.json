@@ -13,6 +13,7 @@
     "cli-spinners": "^1.0.0",
     "cross-spawn": "^5.0.1",
     "espree": "^3.3.2",
+    "has-yarn": "^1.0.0",
     "inquirer": "^2.0.0",
     "left-pad": "^1.1.1",
     "lodash": "^4.14.1",
