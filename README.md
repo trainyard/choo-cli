@@ -85,6 +85,9 @@ $ choo new <project> from <github-user>/<github-repo>
 
 Custom templates must have `ejs` templating syntax.
 
+## List of Generators
+You can find a list of existing generators [here](listOfGenerators/generators.md).
+
 ## Generators
 
 You can use choo-cli to generate pieces of your project as you are developing.
