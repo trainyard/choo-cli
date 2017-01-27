@@ -17,7 +17,7 @@
     "left-pad": "^1.1.1",
     "lodash": "^4.14.1",
     "mem-fs": "^1.1.3",
-    "mem-fs-editor": "^2.3.0",
+    "mem-fs-editor": "^3.0.0",
     "minimist": "^1.2.0",
     "mkdirp": "^0.5.1",
     "nodegit": "^0.16.0",
