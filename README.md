@@ -4,7 +4,7 @@ This is a tool for generating [choo](https://github.com/yoshuawuyts/choo) apps.
 
 ![demo](./choo-cli-demo.gif)
 
-To Install:
+To Install (you'll need at least node v6):
 
 ```
 npm install choo-cli -g
