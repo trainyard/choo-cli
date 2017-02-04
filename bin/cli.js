@@ -7,23 +7,23 @@ process.env.CHOO_CLI = true
 /* Dependencies */
 const help = require('./help')
 const exec = require('../lib/exec')
-const { head, tail } = require('ramda')
 const { isGenerateCommand, isNewCommand, isVersionCommand } = require('../lib/predicates')
 const { name, version, description } = require('../package.json')
 const { message } = require('../lib/utils')
 
 /* Execution */
 function run (args) {
-  const command = head(args)
+  console.log('~~~~~~~~~~~~~~~~~~~~~~~~ in run')
+  const [head, ...tail] = args
 
-  if (isVersionCommand(command)) {
+  if (isVersionCommand(head)) {
     return message(`${name} ${version} - ${description}`)
   }
-  if (isGenerateCommand(command)) {
-    return exec('choo-generate', tail(args))
+  if (isGenerateCommand(head)) {
+    return exec('choo-generate', tail)
   }
-  if (isNewCommand(command)) {
-    return exec('choo-new', tail(args))
+  if (isNewCommand(head)) {
+    return exec('choo-new', tail)
   }
 
   return message(help.main)
