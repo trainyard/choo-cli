@@ -4,6 +4,7 @@ const resolvePath = require('path').resolve
 const kebabCase = require('lodash').kebabCase
 const help = require('./help.js')
 const R = require('ramda')
+const { pipe } = require('pico-lambda')
 const inquirer = require('inquirer')
 const genus = require('../lib/genus')
 const { message } = require('../lib/utils')
@@ -11,7 +12,7 @@ const args = process.argv.slice(2)
 
 const helpOptions = R.intersection(['--help', '-h'])
 const notEmpty = R.complement(R.isEmpty)
-const hasHelp = R.pipe(
+const hasHelp = pipe(
   helpOptions,
   notEmpty
 )

@@ -13,7 +13,6 @@ const { message } = require('../lib/utils')
 
 /* Execution */
 function run (args) {
-  console.log('~~~~~~~~~~~~~~~~~~~~~~~~ in run')
   const [head, ...tail] = args
 
   if (isVersionCommand(head)) {
