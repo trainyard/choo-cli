@@ -13,7 +13,7 @@
     "cli-spinners": "^1.0.0",
     "cross-spawn": "^5.0.1",
     "espree": "^3.3.2",
-    "inquirer": "^3.0.0",
+    "inquirer": "^3.0.2",
     "left-pad": "^1.1.1",
     "lodash": "^4.14.1",
     "mem-fs": "^1.1.3",
