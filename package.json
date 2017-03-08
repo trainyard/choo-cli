@@ -21,7 +21,7 @@
     "minimist": "^1.2.0",
     "mkdirp": "^0.5.1",
     "nodegit": "^0.17.0",
-    "pico-lambda": "^1.0.1",
+    "pico-lambda": "^1.0.4",
     "ramda": "^0.23.0",
     "resolve": "^1.1.7",
     "rimraf": "^2.5.4",
