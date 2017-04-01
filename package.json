@@ -12,7 +12,7 @@
     "chalkline": "0.0.5",
     "cli-spinners": "^1.0.0",
     "cross-spawn": "^5.1.0",
-    "espree": "^3.3.2",
+    "espree": "^3.4.1",
     "inquirer": "^3.0.2",
     "left-pad": "^1.1.1",
     "lodash": "^4.14.1",
