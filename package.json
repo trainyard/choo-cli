@@ -67,7 +67,7 @@
     "dependency-check": "^2.6.0",
     "file-exists": "^3.0.2",
     "snazzy": "^6.0.0",
-    "standard": "^9.0.0",
+    "standard": "^10.0.2",
     "tap-summary": "^3.0.2",
     "tape": "^4.6.0",
     "tape-catch": "^1.0.6"
