@@ -63,7 +63,7 @@
   },
   "homepage": "https://github.com/trainyard/choo-cli#readme",
   "devDependencies": {
-    "clinton": "^0.12.0",
+    "clinton": "^0.13.0",
     "dependency-check": "^2.6.0",
     "file-exists": "^3.0.2",
     "snazzy": "^7.0.0",
