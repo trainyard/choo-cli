@@ -18,7 +18,6 @@ test('App Generator', t => {
         'models/README.md',
         'pages/home.js',
         'pages/README.md',
-        'scripts/README.md',
         '.editorconfig',
         '.gitignore',
         'choo.yaml',
