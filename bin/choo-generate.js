@@ -72,4 +72,3 @@ if (availableGenerators.indexOf(requestedGeneratorName) >= 0) {
   message(chalk.yellow('Generator not available'))
   process.exit()
 }
-

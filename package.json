@@ -65,7 +65,7 @@
   "devDependencies": {
     "clinton": "^0.13.0",
     "dependency-check": "^2.6.0",
-    "file-exists": "^3.0.2",
+    "file-exists": "^5.0.0",
     "snazzy": "^7.0.0",
     "standard": "^10.0.2",
     "tap-summary": "^3.0.2",

@@ -5,7 +5,7 @@ const clinton = require('clinton')
 const exec = require('../../lib/exec')
 
 test('App Generator', t => {
-  t.plan(14)
+  t.plan(13)
   exec('choo-new.js', ['temp'], {
     cwd: testUtils.cwd
   }, () => {
@@ -18,7 +18,6 @@ test('App Generator', t => {
         'models/README.md',
         'pages/home.js',
         'pages/README.md',
-        'scripts/README.md',
         '.editorconfig',
         '.gitignore',
         'choo.yaml',
@@ -40,7 +39,10 @@ test('App Generator', t => {
             (check.ruleId !== 'ava' &&
               check.ruleId !== 'xo' &&
               check.ruleId !== 'pkg-files' &&
+              check.ruleId !== 'pkg-property-order' &&
+              check.ruleId !== 'pkg-engine' &&
               check.ruleId !== 'filename-case' &&
+              check.ruleId !== 'keywords' &&
               check.ruleId !== 'license')) {
             t.notOk(check, check.message)
           }
@@ -48,7 +50,6 @@ test('App Generator', t => {
       }).catch(errors => {
         t.notOk(errors)
       })
-    }, 1000);
+    }, 1000)
   })
 })
-
