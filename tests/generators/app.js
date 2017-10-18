@@ -5,7 +5,7 @@ const clinton = require('clinton')
 const exec = require('../../lib/exec')
 
 test('App Generator', t => {
-  t.plan(13)
+  t.plan(12)
   exec('choo-new.js', ['temp'], {
     cwd: testUtils.cwd
   }, () => {
@@ -14,8 +14,7 @@ test('App Generator', t => {
         'assets/README.md',
         'elements/README.md',
         'lib/README.md',
-        'models/app.js',
-        'models/README.md',
+        'stores/home.js',
         'pages/home.js',
         'pages/README.md',
         '.editorconfig',
