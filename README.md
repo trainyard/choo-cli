@@ -1,4 +1,4 @@
-# choo-cli [![npm](https://img.shields.io/npm/v/choo-cli.svg?maxAge=2592000)](https://www.npmjs.com/package/choo-cli) [![Build Status](https://travis-ci.org/trainyard/choo-cli.svg?branch=master)](https://travis-ci.org/trainyard/choo-cli) ![MIT Licensed](https://img.shields.io/npm/l/choo-cli.svg)
+# choo-cli [![npm](https://img.shields.io/npm/v/choo-cli.svg)](https://www.npmjs.com/package/choo-cli) [![Build Status](https://travis-ci.org/trainyard/choo-cli.svg?branch=master)](https://travis-ci.org/trainyard/choo-cli) ![MIT Licensed](https://img.shields.io/npm/l/choo-cli.svg)
 
 This is a tool for generating [choo](https://github.com/yoshuawuyts/choo) apps.
 
@@ -61,7 +61,7 @@ You can now cd into my-project
 $ cd my-project
 ```
 
-Choo-cli will create a directory structure that [we've found to be optimal](https://github.com/yoshuawuyts/choo-handbook/blob/master/guides/designing-for-reusability.md) for slim
+Choo-cli will create a directory structure that for slim
 applications and reusability.
 
 ```txt
@@ -84,9 +84,6 @@ $ choo new <project> from <github-user>/<github-repo>
 ```
 
 Custom templates must have `ejs` templating syntax.
-
-## List of Generators
-You can find a list of existing generators [here](listOfGenerators/generators.md).
 
 ## Generators
 
