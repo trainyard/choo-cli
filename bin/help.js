@@ -7,7 +7,7 @@ Usage: choo <command> [arguments]
 
 Available commands include:
 
-        new, n  Scaffold a new app relative to the current working directory
+       new , n  Scaffold a new app relative to the current working directory
 
   generate , g  Adds template dependent components, models, views, etc.
 
@@ -45,5 +45,5 @@ Argument Definitions:
 Options:
 
   --help, -h  Shows this.
-
+  --yarn, -y  Use yarn instead of npm install  
 `

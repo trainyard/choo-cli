@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-
+const debug = require('debug')('choo-cli:cli')
 /* Environment Variables */
 process.env.PATH += ':./node_modules/.bin'
 process.env.CHOO_CLI = true
@@ -14,7 +14,7 @@ const { message } = require('../lib/utils')
 /* Execution */
 function run (args) {
   const [head, ...tail] = args
-
+  debug({args})
   if (isVersionCommand(head)) {
     return message(`${name} ${version} - ${description}`)
   }

@@ -6,7 +6,7 @@ const exec = require('../../lib/exec')
 
 test('App Generator', t => {
   t.plan(12)
-  exec('choo-new.js', ['temp'], {
+  exec('choo-new.js', ['temp', '--yarn'], {
     cwd: testUtils.cwd
   }, () => {
     setTimeout(() => {

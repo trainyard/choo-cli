@@ -16,7 +16,10 @@ It also generates common scripts you can use to build/test/serve your choo app.
 ```bash
 # generate a new project folder,
 # comes with package.json, readme, and recommended structure
-choo new my-new-project
+choo new my-new-project 
+
+# using yarn?
+choo new my-new-project --yarn
 
 # generate a new page
 choo generate page my-new-page
@@ -84,6 +87,24 @@ $ choo new <project> from <github-user>/<github-repo>
 ```
 
 Custom templates must have `ejs` templating syntax.
+
+## Using yarn
+
+You can have the choo-cli use yarn over npm, like this
+```bash
+$ choo new <project> from <github-user>/<github-repo> --yarn
+# or
+$ choo new <project> --yarn
+# or
+$ choo new <project> --yarn from <github-user>/<github-repo>
+```
+## Debug mode
+Choo-cli uses [debug](https://github.com/visionmedia/debug) - a popular logging framework.
+
+Enable debug mode by adding an environment `DEBUG` to have `choo-cli*` as its value
+```
+DEBUG=choo-cli* choo new ...
+```
 
 ## Generators
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-
+const debug = require('debug')('choo-cli:generate')
 const yaml = require('yamljs')
 const fs = require('fs')
 const help = require('./help')
@@ -23,6 +23,7 @@ try {
 const availableGenerators = Object.keys(config.generators)
 
 function createFromTemplate ({name, templatePath, target, fileName}) {
+  debug('createFromTemplate', {name, templatePath, target, fileName})
   if (isFuncNameValid(name)) {
     message(chalk.grey(`Generating ${name}`))
     generate(templatePath, target, {
